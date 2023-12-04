@@ -1,6 +1,6 @@
 <!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
 {% extends 'flatpages/default.html' %}
-{%load cenz%}
+{%load f_filter%}
 <!-- Название у нас будет Product -->
 {% block title %}
 news
@@ -21,7 +21,7 @@ news
 <!-- В контенте на странице мы выводим сам товар, идентификатор которого был передан в url -->
 
 
-<b1>{{ news.text}}</b1>
+<b1>{{ news.text|censor}}</b1>
 
 <h1>{{ news.categoryType }}</h1>
 <h1>{{ news.author.autorUser.username }}</h1>
