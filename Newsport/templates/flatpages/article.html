@@ -1,0 +1,28 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+{%load f_filter%}
+<!-- Название у нас будет Product -->
+{% block title %}
+news
+{% endblock title %}
+{% block content %}
+   <h1>{{ news.title1 }}</h1>
+
+<h1>{{ news.dateCreation|date:'M d Y' }}</h1>
+   <!-- Используем переданную из представления переменную time_now
+   и применяем к ней фильтр date. По назначению этот фильтр очень похож
+   на метод strftime у объекта datetime в Python — вывод времени
+   в указанном формате. -->
+   <h3>{{ time_now|date:'M d Y' }}</h3>
+<!-- Если в переменной next_sale будет None,
+   то выведется указанный в фильтре текст -->
+
+   <hr>
+<!-- В контенте на странице мы выводим сам товар, идентификатор которого был передан в url -->
+
+
+<b1>{{ news.text}}</b1>
+
+<h1>{{ news.categoryType }}</h1>
+<h1>{{ news.author.autorUser.username }}</h1>
+{% endblock content %}
